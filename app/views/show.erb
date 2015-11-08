@@ -1,0 +1,10 @@
+<h1>Anagrams for <%= "#{@word}" %></h1>
+<ul>
+  <% @anagrams.each do |anagram| %>
+      <li>
+        <a href="<%= "/anagrams/#{anagram}" %>">
+          <%= "#{anagram}" %>
+        </a>
+      </li>
+  <% end %>
+</ul>

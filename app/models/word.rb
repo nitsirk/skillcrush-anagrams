@@ -4,7 +4,7 @@ class Word < ActiveRecord::Base
     letters = string.split(//)
 
     #create an array to store our anagrams
-    anagrams = []
+    combinations = []
 
     #loop through each letter in letters
     letters.each do |letter|
@@ -13,11 +13,19 @@ class Word < ActiveRecord::Base
 
       #create a new word by combining the letter + the remaining letters
       #add new word to anagrams array
-      anagrams << letter + remaining.join('')
+      combinations << letter + remaining.join('')
 
       #create a new word by combining the letter + the reverse of the remaining letters
       #add new word to anagrams array
-      anagrams << letter + reverse_letters(remaining).join('')
+      combinations << letter + reverse_letters(remaining).join('')
+    end
+
+    anagrams = []
+    #loop over each combo and check for word existence
+    combinations.each do|word|
+      if Word.find_by_text(word).present?
+        anagrams << word
+      end
     end
 
     #return anagrams array

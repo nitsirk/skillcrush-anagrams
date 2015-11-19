@@ -5,3 +5,7 @@
   <input type="text" name="word">
   <input type="submit" class="btn">
 </form></div>
+
+<% if @error.present? %>
+  <p class='error'><%= "#{@error}" %></p>
+<% end %>

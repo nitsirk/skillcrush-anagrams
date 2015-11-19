@@ -4,10 +4,11 @@ end
 
 post '/' do
   word = params[:word]
-  if valid_input?(word)
+  begin
+    valid_input(word)
     redirect "/anagrams/#{word}"
-  else
-    @error = "Please enter 3 letters or less."
+  rescue Exception => error
+    @error = error.message
     erb :index
   end
 end
@@ -37,10 +38,8 @@ def distinct_letters?(input)
   end
 end
 
-def valid_input?(input)
-  if three_letters?(input) && distinct_letters?(input)
-    true
-  else
-    false
+def valid_input(input)
+  if input.length > 3
+    raise Exception.new("Word must be less than or equal to 3 characters.")
   end
 end

@@ -2,7 +2,7 @@
 <ul>
   <% @anagrams.each do |anagram| %>
       <li>
-        <a href="<%= "/anagrams/#{anagram}" %>">
+        <a href="<%= "/anagrams/#{anagram.text}" %>">
           <%= "#{anagram.text}" %>
         </a>
       </li>

@@ -8,8 +8,9 @@ describe 'Our Anagrams App' do
     expect(last_response.redirect?).to be(true)
   end
   
-  it 'displays combinations for a word on a get to /anagrams/:word' do
-    get("/anagrams/cat")
-    expect(last_response.body).to include("cat", "cta", "act", "atc", "tca", "tac")
-  end  
+  #commenting out because this test is now obsolete since the words are checked against the dictionary
+  #it 'displays combinations for a word on a get to /anagrams/:word' do
+    #get("/anagrams/cat")
+    #expect(last_response.body).to include("cat", "cta", "act", "atc", "tca", "tac")
+  #end  
 end

@@ -1,0 +1,10 @@
+<div class="title"><h1>Please Enter Your Word</h1></div>
+
+<div class="search"><form action="/words" method="post" class="form">
+  <input type="text" name="text">
+  <input type="submit" class="btn">
+</form></div>
+
+<% if @error.present? %>
+  <p class='error'><%= "#{@error}" %></p>
+<% end %>

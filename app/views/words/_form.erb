@@ -1,0 +1,8 @@
+<form action="<%= words_form_action(@word) %>" method="post" class="<%= words_form_class(@word) %>" id="<%= words_form_id(@word) %>">
+   <input type="hidden" name="_method" value="<%= words_form_method(@word) %>" />
+  <div>
+    <label for="text">Word:</label>
+    <input type="text" name="text">
+  </div>
+  <input type="submit" class="btn">
+</form>

@@ -32,3 +32,10 @@ put '/words/:id' do
   @word.save
   erb :"/words/show"
 end
+
+delete '/words/:id' do
+  id = params[:id]
+  @word = Word.find(id)
+  @word.delete
+  redirect "/words"
+end

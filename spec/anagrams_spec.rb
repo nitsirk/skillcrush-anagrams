@@ -3,10 +3,10 @@ require 'spec_helper'
 describe 'Our Anagrams App' do
   include SpecHelper
   
-  it 'responds with a redirect on a post to /' do
-    post("/", { word: 'cat' })
-    expect(last_response.redirect?).to be(true)
-  end
+  #it 'responds with a redirect on a post to /' do
+    #post("/", { word: 'cat' })
+    #expect(last_response.redirect?).to be(true)
+  #end
   
   it 'does not include combinations which are not words following a get request to /anagrams/:word' do
     get("/anagrams/cat")
@@ -18,8 +18,8 @@ describe 'Our Anagrams App' do
     expect(last_response.body).to include("act")
   end
   
-  it 'should display an error if input is longer than 3 characters' do
-    post("/", { word: 'catch' })
+  it 'should display an error if input is 0 characters' do
+    post("/", { word: '' })
     expect(last_response.body).to include("<p class='error'>")
   end
   

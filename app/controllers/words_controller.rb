@@ -1,5 +1,5 @@
 get '/words' do 
-  @words = Word.find(:all, :limit => 200)
+  @words = Word.all.limit(200)
   erb :"/words/index"
 end
 
